@@ -9,4 +9,12 @@ sendSearch.addEventListener("click", function () {
 
     const query = searchBox.value
     console.log(query)
+
+    fetch("http://localhost:3000/search", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({query: query})
+    })
+    .then(res => res.text())
+    .then(data => console.log(data))
 })
